@@ -1,0 +1,316 @@
+[
+
+  {
+    "url":"https://www.euskadi.eus/informacion/que-es-la-gripe/web01-a3gripe/es/",
+    "categoria": "enfermedades_comunes",
+    "subcategoria": "Gripe",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["fiebre alta", "dolor cabeza", "dolor muscular", "congestión nasal", "dolor garganta"]
+  },
+
+
+{
+    "url":"https://www.osakidetza.euskadi.eus/campana-de-vacunacion-2024/webosk00-oskenf/es/",
+    "categoria": "enfermedades_comunes",
+    "subcategoria": "Gripe",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["vacunacion"]
+  },
+
+  {
+    "url":"https://www.euskadi.eus/informacion/medicamentos-antivirales/web01-a3gripe/es/",
+    "categoria": "enfermedades_comunes",
+    "subcategoria": "Gripe",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["medicamentos", "antivirales"]
+  },
+
+
+
+  {
+    "url": "https://www.euskadi.eus/enfermedades-infeccion-respiratoria-aguda-ira/web01-a3gripe/es/",
+    "categoria": "enfermedades_comunes",
+    "subcategoria": "Gripe",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": [" infeccion respiratoria aguda", "infeccion virica"]
+  },
+
+   {
+    "url": "https://www.osakidetza.euskadi.eus/cancer-de-mama/webosk00-oskenf/es/",
+    "categoria": "cancer",
+    "subcategoria": "cancer de mama",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["cancer mama", "prevencion", "diagnostico", "tratamiento", "mamografia"]
+  },
+
+  {
+    "url": "https://www.osakidetza.euskadi.eus/programa-cancer-de-mama/webosk00-oskenf/es/",
+    "categoria": "cancer",
+    "subcategoria": "cancer de mama",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["cancer mama", "programa deteccion cancer mama"]
+  },
+
+
+
+
+  {
+    "url": "https://www.osakidetza.euskadi.eus/cancer-de-pulmon/webosk00-oskenf/es/",
+    "categoria": "cancer",
+    "subcategoria": "cancer de pulmon",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["cancer pulmon","tratamiento", "radioterapia"]
+  },
+ 
+
+
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/cancer-colorrectal/webosk00-oskenf/es/",
+    "categoria": "cancer",
+    "subcategoria": "cancer colorectal",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["cancer colon", "colonoscopia", "cancer colorectal"]
+  },
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/programa-de-prevencion-del-cancer-colorrectal/webosk00-oskenf/es/",
+    "categoria": "cancer",
+    "subcategoria": "cancer colorectal",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["programa detecccion cancer colon", "cancer colon", "radioterapia"]
+  },
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/insuficiencia-cardiaca/webosk00-oskenf/es/",
+    "categoria": "Cardiovascular",
+    "subcategoria": "Insuficiencia cardiaca",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["Cardiovascular", "corazon", "insuficiencia cardiaca", "tratamiento", "medicamentos"]
+  },
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/enfermedad-cardiovascular/webosk00-oskenf/es/",
+    "categoria": "Cardiovascular",
+    "subcategoria": "enfermedad cardiovascular",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["cardiovascular","diagnostico", "pruebas" ]
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/angina-infarto/webosk00-oskenf/es/",
+    "categoria": "Cardiovascular",
+    "subcategoria": "angina infarto",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["angina de pecho","infarto miocardio"]
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/hta/webosk00-oskenf/es/",
+    "categoria": "Cardiovascular",
+    "subcategoria": "hipertension arterial",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["hipertension arterial","tension arterial"]
+  } ,
+
+  
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/ictus/webosk00-oskenf/es/",
+    "categoria": "Cardiovascular",
+    "subcategoria": "ictus",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["ictus","secuelas"]
+  } ,
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/mareo-sincope-y-parada-cardiorrespiratoria/webosk00-oskenf/es/",
+    "categoria": "Cardiovascular",
+    "subcategoria": "Mareo, sincope y parada cardiorrespiratoria",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["mareo","parada cardiorrespiratoria","sincope"]
+  } ,
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/vivir-con-tratamiento-anticoagulante/webosk00-oskenf/es/",
+    "categoria": "Cardiovascular",
+    "subcategoria": "anticoagulante",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "autor": "Osakidetza",
+    "fecha_publicacion": "2024-09-03",
+    "palabras_clave": ["trombosis","anticoagulantes"]
+  } ,
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/vih-sida/webosk00-oskenf/es/",
+    "categoria": "its-enfermedades transmision sexual",
+    "subcategoria": "vih-sida",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "autor": "Osakidetza",
+    "fecha_publicacion": "2025-01-21",
+    "palabras_clave": ["enfermedad transmision sexual","sida", "vih", "prevencion", "tratamiento"]
+  } ,
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/diabetes/webosk00-oesdiab/es/",
+    "categoria": "diabetes",
+    "subcategoria": "diabetes",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["diabetes"]
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/tipos-de-diabetes-mellitus/webosk00-oskenf/es/",
+    "categoria": "diabetes",
+    "subcategoria": "diabetes",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["diabetes", "diabetes mellitus", "tipos de diabetes"]
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/complicaciones-de-la-diabetes/webosk00-oskenf/es/",
+    "categoria": "diabetes",
+    "subcategoria": "diabetes",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["diabetes", " complicaciones de la diabetes", "hiperglicemia", "hipoglucemia"]
+  
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/ansiedad/webosk00-oskenf/es",
+    "categoria": "salud mental",
+    "subcategoria": "ansiedad",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["ansiedad", "trastorno de ansiedad"]
+  
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/esquizofrenia/webosk00-oskenf/es/",
+    "categoria": "salud mental",
+    "subcategoria": "esquizofrenia",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["esquizofrenia"]
+  
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/enfermedad-agorafobia/webosk00-oskenf/es/",
+    "categoria": "salud mental",
+    "subcategoria": "agorafobia",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["agorafobia", "miedo a salir de casa","miedo a estar sola en espacios abiertos"]
+  
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/depresion/webosk00-oskenf/es/",
+    "categoria": "salud mental",
+    "subcategoria": "depresion",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["depresion", "depresion postparto","depresion reactiva", "depresion ansioso-depresiva"]
+  
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/trastorno-bipolar/webosk00-oskenf/es/",
+    "categoria": "salud mental",
+    "subcategoria": "trastorno bipolar",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["deptrastorno bipolar"]
+
+  
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/enfermedad-pulmonar-obstructiva-cronica-epoc/webosk00-oskenf/es/",
+    "categoria": "respiratorias",
+    "subcategoria": "epoc",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["epoc", "miedo a salir de casa","miedo a estar sola en espacios abiertos"]
+  
+  },
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/enfermedad-asma/webosk00-oskenf/es/",
+    "categoria": "respiratorias",
+    "subcategoria": "asma",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["asma", " enfermedad respiratoria crónica", "asma bronquial", "asma alérgico"]
+  
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/bronquiolitis-aguda/webosk00-oskenf/es/",
+    "categoria": "respiratorias",
+    "subcategoria": "bronquiolitis",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["bronquiolitis", " enfermedad respiratoria crónica", "asma bronquial", "asma alérgico"]
+  
+  },
+
+  {
+    "url":  "https://www.osakidetza.euskadi.eus/epilepsia/webosk00-oskenf/es/",
+    "categoria": "neurologia",
+    "subcategoria": "epilepsia",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "Web",
+    "palabras_clave": ["epilepsia", "crisis epilépticas", "convulsiones"]
+  
+  }
+  
+
+
+]

@@ -1,0 +1,186 @@
+
+[
+
+  {
+    "filename": "consejos_gripe_general_es.pdf",
+    "categoria": "enfermedades_comunes",
+    "subcategoria": "Gripe",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["gripe", "fiebre alta", "virus", "escalofrios"]
+  },
+ 
+
+
+  {
+    "filename": "vacunacion-antigripal-embarazadas_es.pdf",
+    "categoria": "enfermedades_comunes",
+    "subcategoria": "Gripe",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["gripe", "vacunacion", "vacuna antigripal", "emabarazada", "embarazo"]
+  },
+
+  {
+    "filename": "diabetes_es.pdf",
+    "categoria": "diabetes",
+    "subcategoria": "diabetes",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["diabetes", "diabetes mellitus"]
+  },
+  {
+    "filename": "diabetes_pie_es.pdf",
+    "categoria": "diabetes",
+    "subcategoria": "diabetes",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["diabetes", "pie diabetico", "ulceras"]
+  },
+  {
+    "filename": "diabetes_cuidarse_es.pdf",
+    "categoria": "diabetes",
+    "subcategoria": "diabetes",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["diabetes", "cuidados"]
+  },
+
+  {
+    "filename": "agorafobia_es.pdf",
+    "categoria": "salud mental",
+    "subcategoria": "agorafobia",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["agorafobia",  "miedo a salir de casa","miedo a estar sola en espacios abiertos"]
+  },
+  
+  {
+    "filename": "Bronquiolitis_aguda_es.pdf",
+    "categoria": "respiratorias",
+    "subcategoria": "bronquiolitis",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["bronquiolitis", " enfermedad respiratoria crónica", "asma bronquial", "asma alérgico"]
+  
+  },
+
+  {
+    "filename": "trastorno-bipolar_es.pdf",
+    "categoria": "salud mental",
+    "subcategoria": "trastorno bipolar",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["trastorno bipolar", "trastorno afectivo", "trastorno del estado de ánimo"]
+  
+  },
+
+   {
+    "filename": "cancer_mama_es.pdf",
+    "categoria": "cancer",
+    "subcategoria": "cancer de mama",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["cancer mama", "programa deteccion cancer mama"]
+  
+  },
+
+     {
+    "filename": "cancer_mama_despues_es.pdf",
+    "categoria": "cancer",
+    "subcategoria": "cancer de mama",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["cancer mama", "programa deteccion cancer mama"]
+  
+  },
+
+   
+  {
+    "filename":  "depresion_pacientes_es.pdf",
+    "categoria": "salud mental",
+    "subcategoria": "depresion",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["depresion", "Depresión subclínica","Depresión enmascarada", "Depresión con síntomas psicóticos", "Trastorno bipolar"]
+  
+  },
+
+ {
+    "filename":  "depresion_guia_es.pdf",
+    "categoria": "salud mental",
+    "subcategoria": "depresion",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["depresion", "suicidio","irritabilidad"]
+  
+  },
+
+  {
+    "filename":  "depresion_adolescencia_es.pdf",
+    "categoria": "salud mental",
+    "subcategoria": "depresion",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["depresion", "depresion adolescencia", "depresion juvenil", "depresion en jovenes"]
+  
+  },
+  {
+    "filename":  "depresion_juvenil_es.pdf",
+    "categoria": "salud mental",
+    "subcategoria": "depresion",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["depresion", "depresion adolescencia", "depresion juvenil", "depresion en jovenes"]
+  
+  },
+
+    {
+    "filename":  "depresion_adulto_es.pdf",
+    "categoria": "salud mental",
+    "subcategoria": "depresion",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["depresion", "depresion adulto"]
+  
+  },
+
+  {
+    "filename":  "depresion_es.pdf",
+    "categoria": "salud mental",
+    "subcategoria": "depresion",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["depresion", "depresion adulto"]
+  
+  },
+
+
+
+    {
+    "filename":  "ictus_es.pdf",
+    "categoria": "Cardiovascular",
+    "subcategoria": "ictus",
+    "idioma": "es",
+    "publico_objetivo": "general",
+    "fuente": "PDF",
+    "palabras_clave": ["ictus","demencia vascular", "accidente cerebrovascular", "ictus isquémico"]
+  } 
+
+]
