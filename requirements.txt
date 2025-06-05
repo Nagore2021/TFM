@@ -1,0 +1,48 @@
+# === Base de datos vectorial ===
+chromadb==0.6.3
+
+# === Procesamiento de PDFs ===
+PyMuPDF==1.25.3  
+
+# === Modelos de embeddings y NLP ===
+sentence-transformers==3.4.1
+transformers==4.48.0
+torch==2.6.0
+keybert  #extraer palabras clave
+
+# === LangChain y pipeline RAG ===
+langchain-0.3.23
+langchain-community-0.3.21
+langchain-core==0.3.33
+langchain-text-splitters==0.3.5
+langchain-openai==0.3.3
+lark
+langchain-chroma
+langchain-community
+huggingface-hub
+llama-cpp-python>=0.1.56 
+
+# === Framework web (si lo usas para API o demo) ===
+fastapi==0.115.8
+uvicorn==0.34.0
+
+# === Manejo de peticiones y scraping ===
+beautifulsoup4==4.13.3
+requests>=2.31.0
+
+# === Otras librerías ===
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.13.1
+tqdm==4.66.4
+tabulate
+rank_bm25
+
+
+
+# === Entorno interactivo para notebooks ===
+ipywidgets>=8.0.0
+jupyter>=1.0.0
+matplotlib>=3.8.0
+seaborn >=0.13.2
+umap>=0.1.1  #visualización

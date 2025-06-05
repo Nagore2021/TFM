@@ -1,0 +1,44 @@
+paths:
+  pdf_folder: "../data/pdf/"
+  web_metadata: "../data/metadata/web_metadata.json"
+  pdf_metadata: "../data/metadata/pdf_metadata.json"
+  chroma_db_path: "../chroma_db/"
+  model_path: "../models/"
+  output_dir: "./resultados"  # Directorio de salida para los resultados
+
+preprocessing:
+  use_lemmatization: false       # Activar o desactivar lematización
+  remove_stopwords: true        # Activar o desactivar eliminación de stopwords
+  enrich_keywords: true          # Activar o desactivar enriquecimiento de palabras clave
+  enrich_keywords_n: 5           # Nº de palabras clave a generar con KeyBERT
+  chunk_size: 300                # Para ChromaDB 
+  chunk_overlap: 50              # Para mantener contexto
+
+search:
+  hybrid:
+    use_keyword_filter: True     # Activar o desactivar filtrado por palabras clave
+    n_keywords: 5                # Nº de palabras clave a extraer por documento
+    use_semantic_search: True    # Activar o desactivar búsqueda semántica
+    top_k_filtered: 20           # Nº de documentos candidatos después del filtrado
+    use_keybert: True            # Activar o desactivar generación de palabras clave con KeyBERT
+    keyword_weight: 0.4          # Peso de la búsqueda por palabras clave (0 a 1)
+    semantic_weight: 0.6         # Peso de la búsqueda semántica (0 a 1)
+    similarity_threshold: 0.5    # Umbral de similitud para filtrar resultados
+  retrieval_top_k: 5   
+
+model:
+  name_embedding: "BAAI/bge-m3"  #para generar embeddings e indexar en ChromaDB
+  name_cross_encoder: "BAAI/bge-reranker-v2-m3"
+  name_finetuning: "bio_roberta_epochs/epoch5_MRR0.6842"
+  name_es: "BSC-LT/roberta-base-biomedical-es"   # Para KeyBERT español
+  ner_model_es: "Clinical-AI-Apollo/Medical-NER" # Para NER español
+  #name_eu: "orai-nlp/ElhBERTeu"    # Para KeyBERT euskera
+  translation_model: "Helsinki-NLP/opus-mt-eu-es"   # Traductor euskera→español
+  llm_model: "mistralai/Mistral-7B-Instruct-v0.2"  # Modelo de lenguaje para generación de texto
+collection:
+  name: "documentos_osakidetza"
+  name_finetuneado: "documentos_finetuneado"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
