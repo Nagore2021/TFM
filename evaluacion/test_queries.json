@@ -1,0 +1,1093 @@
+{
+  "queries": [
+
+      {
+      "text_es": "¿Cómo puedo reconocer los signos de un ictus?",
+      "text_eu": "Nola ezagutu dezaket istripu zerebrobaskular baten seinaleak?",
+      "relevant_docs": [
+        "pdf_ictus_es",
+        "web_ictus"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "ictus",
+      "dificultad": "dificil"
+    },
+      {
+      "text_es": "¿Qué no hago si me da un ictus?",
+      "text_eu": "Zer egin behar dut ictus bat ematen badit?",
+      "relevant_docs": [
+        "pdf_ictus_es",
+        "web_ictus"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "ictus",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Por qué es urgente tratar el ictus?",
+      "text_eu": "Zergatik da garrantzitsua istripu zerebrobaskularra tratatzea?",
+      "relevant_docs": [
+        "pdf_ictus_es",
+        "web_ictus"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "ictus",
+      "dificultad": "dificil"
+    },
+    
+    {
+      "text_es": "¿Qué hacer si me da un ictus?",
+      "text_eu": "Zer egin behar dut ictus bat ematen badit?",
+      "relevant_docs": [
+        "pdf_ictus_es",
+        "web_ictus"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "ictus",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cuáles son los síntomas principales de la gripe?",
+      "text_eu": "Zein dira gripearen sintoma nagusiak?",
+      "relevant_docs": [
+        "web_informacion",
+        "pdf_consejos_gripe_general_es"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Qué es el cáncer de colon y de recto?",
+      "text_eu": "Zer da koloneko eta hesteetako minbizia?",
+      "relevant_docs": [
+        "web_cancer-colorrectal",
+        "web_programa-de-prevencion-del-cancer-colorrectal"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer colorectal",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Cuáles son los síntomas del cáncer de colon y de recto?",
+      "text_eu": "Zein dira koloneko eta hesteetako minbiziaren sintomak?",
+      "relevant_docs": [
+        "web_cancer-colorrectal",
+        "web_programa-de-prevencion-del-cancer-colorrectal"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer colorectal",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Cómo se previene la gripe?",
+      "text_eu": "Nola saihesten da gripea?",
+      "relevant_docs": [
+        "web_informacion",
+        "pdf_consejos_gripe_general_es"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Es recomendable la vacunación antigripal para adultos sanos?",
+      "text_eu": "Gomendagarria al da gripearen aurkako txertoa osasuntsu dauden helduentzat?",
+      "relevant_docs": [
+        "web_campana-de-vacunacion-2024"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Quiénes deben vacunarse contra la gripe cada año?",
+      "text_eu": "Nor har beharko luke gripearen txertoa urtean behin?",
+      "relevant_docs": [
+        "web_campana-de-vacunacion-2024"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué tratamiento se recomienda para aliviar los síntomas de la gripe?",
+      "text_eu": "Zeintzuk dira gripearen sintomak arintzeko gomendatutako tratamenduak?",
+      "relevant_docs": [
+        "web_informacion",
+        "pdf_consejos_gripe_general_es"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "media"
+    },
+
+    {
+      "text_es": "¿Durante cuántos días se manifiestan los síntomas habituales de la gripe?",
+      "text_eu": "Gripearen sintoma ohikoak zenbat egunetan agertzen dira?",
+      "relevant_docs": [
+       
+        "web_informacion",
+        "pdf_consejos_gripe_general_es"
+        
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Cuándo puedo contagiar a otras personas si tengo gripe?",
+      "text_eu": "Gripea dudanean, noiz naiteke beste pertsona batzuk kutsatzeko?",
+      "relevant_docs": [
+        "web_informacion",
+        "pdf_consejos_gripe_general_es"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué debo hacer si tengo fiebre y malestar general?",
+      "text_eu": "Zer egin behar dut nire tenperatura altua bada eta gaixotasun orokorra badut?",
+      "relevant_docs": [
+        "web_informacion",
+        "pdf_consejos_gripe_general_es"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "Durante el emabarazo, ¿cuándo está indicada la vacuna?",
+      "text_eu": "Haurdunaldian, noiz gomendatzen da txertoa",
+      "relevant_docs": [
+        "pdf_vacunacion-antigripal-embarazadas_es"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "media"
+    },
+    
+    {
+      "text_es": "¿Puedo tomar antibióticos para tratar la gripe?",
+      "text_eu": "Gripea tratatzeko antibiotikoak hartu al ditzaket?",
+      "relevant_docs": [
+         "pdf_consejos_gripe_general_es",
+        "web_informacion"
+      ],
+      "categoria": "enfermedades_comunes",
+      "subcategoria": "Gripe",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿A qué edad debería realizarme mi primera mamografía?",
+      "text_eu": "Zein urtetan egin beharko nire lehen mamografia?",
+      "relevant_docs": [
+        "web_cancer-de-mama",
+        "pdf_cancer_mama_es",
+        "pdf_cancer_mama_despues_es",
+        "web_programa-cancer-de-mama"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de mama",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Cómo puedo hacerme una autoexploración de las mamas?",
+      "text_eu": "Nola egin dezaket bularren autoazterketa?",
+      "relevant_docs": [
+        "web_cancer-de-mama",
+        "pdf_cancer_mama_es",
+        "pdf_cancer_mama_despues_es",
+        "web_programa-cancer-de-mama"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de mama",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Cuáles son los factores de riesgo del cáncer de mama?",
+      "text_eu": "Zeintzuk dira bularreko minbiziaren arrisku-faktoreak?",
+      "relevant_docs": [
+        "web_cancer-de-mama",
+        "pdf_cancer_mama_es",
+        "cancer_mama_despues_es",
+        "web_programa-cancer-de-mama"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de mama",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Es hereditario el cáncer de mama?",
+      "text_eu": "Hereditarioa al da bularreko minbizia?",
+      "relevant_docs": [
+        "web_cancer-de-mama",
+        "pdf_cancer_mama_es",
+        "pdf_cancer_mama_despues_es",
+        "web_programa-cancer-de-mama"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de mama",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué pruebas diagnósticas existen para detectar el cáncer de mama?",
+      "text_eu": "Zer diagnostiko-proba daude bularreko minbizia detektatzeko?",
+      "relevant_docs": [
+        "web_cancer-de-mama",
+        "pdf_cancer_mama_es",
+        "pdf_cancer_mama_despues_es",
+        "web_programa-cancer-de-mama"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de mama",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cómo afecta la alimentación al riesgo de cáncer de mama?",
+      "text_eu": "Nola eragiten du elikadurak bularreko minbiziaren arriskuan?",
+      "relevant_docs": [
+        "web_cancer-de-mama",
+        "pdf_cancer_mama_es",
+        "pdf_cancer_mama_despues_es",
+        "web_programa-cancer-de-mama"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de mama",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué tipo de alimentación se recomienda para prevenir el cáncer de mama?",
+      "text_eu": "Zein elikadura gomendatzen da bularreko minbizia prebenitzeko?",
+      "relevant_docs": [
+        "web_cancer-de-mama",
+        "pdf_cancer_mama_es",
+        "pdf_cancer_mama_despues_es",
+        "web_programa-cancer-de-mama"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de mama",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Cuáles son los tratamientos actuales para el cáncer de mama?",
+      "text_eu": "Zein dira bularreko minbiziaren tratamendu aktualak?",
+      "relevant_docs": [
+        "web_cancer-de-mama",
+        "pdf_cancer_mama_es",
+        "pdf_cancer_mama_despues_es",
+        "web_programa-cancer-de-mama"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de mama",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿La radioterapia es dolorosa para tratar el cáncer de pulmón?",
+      "text_eu": "Mingarria al da biriketako minbizia tratatzeko erradioterapia?",
+      "relevant_docs": [
+        "web_cancer-de-pulmon"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de pulmon",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Cuáles son los síntomas iniciales del cáncer de pulmón?",
+      "text_eu": "Zein dira biriketako minbiziaren sintoma hasierakoak?",
+      "relevant_docs": [
+        "web_cancer-de-pulmon"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de pulmon",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Qué factores de riesgo aumentan las probabilidades de cáncer de pulmón?",
+      "text_eu": "Zein arrisku-faktorek handitzen dute biriketako minbiziaren probabilitatea?",
+      "relevant_docs": [
+        "web_cancer-de-pulmon"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de pulmon",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Cómo se diagnostica el cáncer de pulmón?",
+      "text_eu": "Nola diagnostikatzen da biriketako minbizia?",
+      "relevant_docs": [
+        "web_cancer-de-pulmon"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de pulmon",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué opciones de tratamiento existen para el cáncer de pulmón?",
+      "text_eu": "Zer tratamendu-aukera daude biriketako minbizia lantzeko?",
+      "relevant_docs": [
+        "web_cancer-de-pulmon"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de pulmon",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Qué efectos secundarios puede causar la quimioterapia en cáncer de pulmón?",
+      "text_eu": "Zein bigarren-efektu sortu ditzake kimioterapiak biriketako minbizia tratatzerakoan?",
+      "relevant_docs": [
+        "web_cancer-de-pulmon"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer de pulmon",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cómo debo prepararme para una colonoscopia?",
+      "text_eu": "Nola prestatu behar dut kolonoskopia bat egiteko?",
+      "relevant_docs": [
+        "web_cancer-colorrectal",
+        "web_programa-de-prevencion-del-cancer-colorrectal"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer colorectal",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Qué riesgos y posibles complicaciones tiene una colonoscopia?",
+      "text_eu": "Zein arrisku eta konplikazio posible ditu kolonoskopiak?",
+      "relevant_docs": [
+        "web_cancer-colorrectal",
+        "web_programa-de-prevencion-del-cancer-colorrectal"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer colorectal",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué es el cáncer colorrectal?",
+      "text_eu": "Zer da kolorektaleko minbizia?",
+      "relevant_docs": [
+        "web_cancer-colorrectal",
+        "web_programa-de-prevencion-del-cancer-colorrectal"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer colorectal",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Cuáles son los primeros síntomas del cáncer colorrectal?",
+      "text_eu": "Zein dira kolorektaleko minbiziaren lehen sintomak?",
+      "relevant_docs": [
+        "web_cancer-colorrectal",
+        "web_programa-de-prevencion-del-cancer-colorrectal"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer colorectal",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Qué pruebas de diagnóstico se utilizan para detectar el cáncer colorrectal?",
+      "text_eu": "Zein diagnostiko-proba erabiltzen dira kolorektaleko minbizia detektatzeko?",
+      "relevant_docs": [
+        "web_cancer-colorrectal",
+        "web_programa-de-prevencion-del-cancer-colorrectal"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer colorectal",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Cuáles son las opciones de tratamiento para el cáncer colorrectal en etapa temprana?",
+      "text_eu": "Zein dira kolorektaleko minbiziaren tratamendu-aukera goiztiar fasean?",
+      "relevant_docs": [
+        "web_cancer-colorrectal",
+        "web_programa-de-prevencion-del-cancer-colorrectal"
+      ],
+      "categoria": "cancer",
+      "subcategoria": "cancer colorectal",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Cuáles son los primeros síntomas de un infarto?",
+      "text_eu": "Zein dira miokardioko infartuaren lehen sintomak?",
+      "relevant_docs": [
+        "web_angina-infarto"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "angina infarto",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Qué debo hacer si creo que estoy sufriendo un infarto?",
+      "text_eu": "Zer egin behar dut infartu bat jasaten ari naizela uste badut?",
+      "relevant_docs": [
+        "web_angina-infarto"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "angina infarto",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué factores de riesgo aumentan la probabilidad de sufrir un infarto de miocardio?",
+      "text_eu": "Zein arrisku-faktorek handitzen dute miokardioko infartu baten probabilitatea?",
+      "relevant_docs": [
+        "web_angina-infarto"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "angina infarto",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué debo hacer si tengo la tensión arterial alta?",
+      "text_eu": "Zer egin behar dut nire odol-presioa altua badut?",
+      "relevant_docs": [
+        "web_hta"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "hipertension arterial",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Con qué frecuencia debo medir mi presión arterial en casa?",
+      "text_eu": "Maiztasun zein izan behar dut etxean odol-presioa neurtzeko?",
+      "relevant_docs": [
+        "web_hta"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "hipertension arterial",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Cuáles son las secuelas más comunes después de un ictus?",
+      "text_eu": "Zein dira istripu zerebrobaskularraren ondoren ohikoenak diren ondorioak?",
+      "relevant_docs": [
+        "web_ictus",
+        "pdf_ictus_es"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "ictus",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Qué hacer si me da un Ictus?",
+      "text_eu": "Zer egin behar dut ictus bat ematen badit?",
+      "relevant_docs": [
+        "pdf_ictus_es",
+        "web_ictus"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "ictus",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "Reconocer una parada cardiorrespiratoria",
+      "text_eu": "Bihotz-biriketako geldialdi batez ohartzea",
+      "relevant_docs": [
+        "web_mareo-sincope-y-parada-cardiorrespiratoria"
+      ],
+      "categoria": "Cardiovascular",
+      "subcategoria": "Mareo, sincope y parada cardiorrespiratoria",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cómo se transmite el VIH?",
+      "text_eu": "Nola kutsatzen da HIESa?",
+      "relevant_docs": [
+        "web_vih-sida"
+      ],
+      "categoria": "its-enfermedades transmision sexual",
+      "subcategoria": "vih-sida",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Cómo sé si tengo SIDA?",
+      "text_eu": "Nola jakin dezaket HIESa dudan?",
+      "relevant_docs": [
+        "web_vih-sida"
+      ],
+      "categoria": "its-enfermedades transmision sexual",
+      "subcategoria": "vih-sida",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Cuánto tiempo sobrevive el VIH fuera del organismo humano?",
+      "text_eu": "GIBak zenbat denbora irauten du bizirik giza organismotik kanpo?",
+      "relevant_docs": [
+        "web_vih-sida"
+      ],
+      "categoria": "its-enfermedades transmision sexual",
+      "subcategoria": "vih-sida",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cómo sé si tengo diabetes?",
+      "text_eu": "Nola dakit diabetesa dudan?",
+      "relevant_docs": [
+        "web_tipos-de-diabetes-mellitus",
+        "web_complicaciones-de-la-diabetes"
+      ],
+      "categoria": "diabetes",
+      "subcategoria": "diabetes",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cuales son los cuidados de una persona con diabetes?",
+      "text_eu": "Zein dira diabetesa duen pertsona baten zaintzak?",
+      "relevant_docs": [
+        "pdf_diabetes_cuidarse_es"
+       
+      ],
+      "categoria": "diabetes",
+      "subcategoria": "diabetes",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cuales son los síntomas de la bronquiolitis?",
+      "text_eu": "",
+      "relevant_docs": [
+       "web_bronquiolitis-aguda",
+        "pdf_Bronquiolitis_aguda_es"
+      ],
+      "categoria": "respiratorias",
+      "subcategoria": "bronquiolitis",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Nola prebenitu egin daiteke bronkiolitisa",
+      "relevant_docs": [
+        "web_bronquiolitis-aguda",
+        "pdf_Bronquiolitis_aguda_es"
+      ],
+      "categoria": "respiratorias",
+      "subcategoria": "bronquiolitis",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Se puede prevenir la EPOC?",
+      "text_eu": "",
+      "relevant_docs": [
+        "web_enfermedad-pulmonar-obstructiva-cronica-epoc"
+      ],
+      "categoria": "respiratorias",
+      "subcategoria": "epoc",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Nola egin aurre izu-sentsazioei?",
+      "relevant_docs": [
+        "web_enfermedad-agorafobia",
+        "pdf_agorafobia_es"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "agorafobia",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Zein da agorafobiaren tratamendua?",
+      "relevant_docs": [
+        "web_enfermedad-agorafobia",
+        "pdf_agorafobia_es"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "agorafobia",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Se cura la esquizofrenia?",
+      "text_eu": "",
+      "relevant_docs": [
+        "web_esquizofrenia"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "esquizofrenia",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Zeintzuk dira eskizofreniaren arrazoiak?",
+      "relevant_docs": [
+        "web_esquizofrenia"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "esquizofrenia",
+      "dificultad": "dificil"
+    },
+   
+    {
+      "text_es": "¿Depresión en la adolescencia?",
+      "text_eu": "",
+      "relevant_docs": [
+        "pdf_depresion_juvenil_es",
+        "pdf_depresion_adolescencia_es",
+        "web_depresion",
+        "pdf_depresion_guia_es",
+        "pdf_depresion_pacientes_es"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "depresion",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Zeintzuk dira depresioaren sintomak?",
+      "relevant_docs": [
+        "web_depresion",
+        "pdf_depresion_guia_es",
+        "pdf_depresion_pacientes_es",
+        "pdf_depresion_adolescencia_es",
+        "pdf_depresion_juvenil_es"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "depresion",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cómo se trata la depresión?",
+      "text_eu": "",
+      "relevant_docs": [
+        "pdf_depresion_adolescencia_es",
+        "web_depresion",
+        "pdf_depresion_guia_es",
+        "pdf_depresion_pacientes_es",
+        "pdf_depresion_juvenil_es"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "depresion",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cuáles son sus posibles efectos secundarios de los antidepresivos?",
+      "text_eu": "",
+      "relevant_docs": [
+       "pdf_depresion_adolescencia_es",
+        "web_depresion",
+        "pdf_depresion_guia_es",
+        "pdf_depresion_pacientes_es",
+        "pdf_depresion_juvenil_es"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "depresion",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Zer egin dezaket depresioarekin duen pertsona bati laguntzeko?", 
+      "relevant_docs": [
+        "web_depresion",
+        "pdf_depresion_guia_es",
+        "pdf_depresion_pacientes_es",
+        "pdf_depresion_adolescencia_es",
+        "pdf_depresion_juvenil_es"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "depresion",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Se puede curar el Trastorno Bipolar?",
+      "text_eu": "Trastorno bipolarra sendatu daiteke?",
+      "relevant_docs": [
+        "web_trastorno-bipolar"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "trastorno bipolar",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Se cura el trastorno bipolar?",
+      "text_eu": "",
+      "relevant_docs": [
+        "web_trastorno-bipolar"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "trastorno bipolar",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cuales son los cuidados de una persona con trastorno bipolar?",
+      "text_eu": "",
+      "relevant_docs": [
+        "web_trastorno-bipolar"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "trastorno bipolar",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Se cura la esquizofrenia?",
+      "text_eu": "",
+      "relevant_docs": [
+        "web_esquizofrenia"
+      ],
+      "categoria": "salud mental",
+      "subcategoria": "esquizofrenia",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Zer egin krisi epileptikoetan?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Emakume epileptiko bat haurdun gelditzen bada, zer egin behar du?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Cuáles son los síntomas más comunes de la epilepsia?",
+      "text_eu": "Zein dira epilepsiaren sintoma ohikoenak?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Qué medicamentos se usan habitualmente para tratar la epilepsia?",
+      "text_eu": "Zeintzuk dira epilepsia tratatzeko ohiko medikamentuak?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿La epilepsia es hereditaria?",
+      "text_eu": "Epilepsia hereditarioa al da?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Qué debo hacer si veo a alguien teniendo una crisis epiléptica?",
+      "text_eu": "Zer egin behar dut beste pertsona batek epilepsiako krisi bat badu?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Es seguro conducir si tengo la epilepsia controlada?",
+      "text_eu": "Seguru al da gidatzea nire epilepsia kontrolatuta badago?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Qué factores pueden desencadenar una crisis epiléptica?",
+      "text_eu": "Zein faktorek eragin dezakete epilepsiako krisi bat?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Puedo llevar una vida normal teniendo epilepsia?",
+      "text_eu": "Bizitza normala izan dezaket epilepsia badut?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Cuál es la causa de la epilepsia?",
+      "text_eu": "Zein da epilepsiaren kausa?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿La epilepsia se puede curar definitivamente?",
+      "text_eu": "Epilepsia behin betiko sendatu daiteke?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "dificil"
+    },
+    {
+      "text_es": "¿Qué tipo de dieta o hábitos alimenticios se recomiendan para la epilepsia?",
+      "text_eu": "Zein elikadura-ohitura edo dieta gomendatzen dira epilepsiarako?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "media"
+    },
+
+
+    {
+      "text_es": "Mi abuela tuvo un derrame, ¿qué síntomas debo vigilar?",
+      "text_eu": "Nire amonak derrame bat izan zuen, zein sintoma zaindu behar ditut?",
+      "relevant_docs": [
+        "pdf_ictus",
+        "web_ictus"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "ictus",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "¿Qué hago si alguien tiene ataques de epilepsia?",
+      "text_eu": "Zer egin behar dut norbaitek erasoak baditu?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "Mi hijo se pone rígido y convulsiona, ¿es normal?",
+      "text_eu": "Nire semea gogor jartzen da eta konbultsioak izaten ditu, normala da?",
+      "relevant_docs": [
+        "web_epilepsia"
+      ],
+      "categoria": "neurologia",
+      "subcategoria": "epilepsia",
+      "dificultad": "media"
+     
+    },
+    {
+      "text_es": "Tengo dolor de pecho cuando subo escaleras",
+      "text_eu": "Bularreko mina daukat eskailerak igo egiten ditudanean",
+      "relevant_docs": [
+        "web_angina_infarto"
+      ],
+      "categoria": "cardiologia",
+      "subcategoria": "angina_infarto",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "¿Es grave tener un ataque al corazón?",
+      "text_eu": "Larria da bihotzeko erasoa izatea?",
+      "relevant_docs": [
+        "web_angina_infarto"
+      ],
+      "categoria": "cardiologia",
+      "subcategoria": "angina_infarto",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "Mi presión está alta, ¿qué puedo hacer?",
+      "text_eu": "Nire presioa altua dago, zer egin dezaket?",
+      "relevant_docs": [
+        "web_hipertension_arterial"
+      ],
+      "categoria": "cardiologia",
+      "subcategoria": "hipertension_arterial",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "Mi esposa  se me desmayóen el supermercado",
+      "text_eu": "Nire emaztea zorabitu egin zitzaidan supermerkatuan",
+      "relevant_docs": [
+        "web_mareo_sincope_parada"
+      ],
+      "categoria": "cardiologia",
+      "subcategoria": "mareo_sincope_parada",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "Encontré un bulto en mi pecho, ¿es cáncer?",
+      "text_eu": "Bulto bat aurkitu dut nire bularrean, minbizia da?",
+      "relevant_docs": [
+        "web_cancer_mama"
+      ],
+      "categoria": "oncologia",
+      "subcategoria": "cancer_mama",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "Mi padre tiene un tumor en el intestino",
+      "text_eu": "Nire aitak tumore bat du hestean",
+      "relevant_docs": [
+        "web_cancer_colorectal"
+      ],
+      "categoria": "oncologia",
+      "subcategoria": "cancer_colorectal",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "Toso sangre desde hace una semana",
+      "text_eu": "Odola eztulten dut aste batetik",
+      "relevant_docs": [
+        "web_cancer_pulmon"
+      ],
+      "categoria": "oncologia",
+      "subcategoria": "cancer_pulmon",
+      "dificultad": "alta"
+    },
+    {
+      "text_es": "Tengo el azúcar alto, ¿qué como?",
+      "text_eu": "Azukrea altua daukat, zer jan dezaket?",
+      "relevant_docs": [
+        "web_diabetes"
+      ],
+      "categoria": "endocrinologia",
+      "subcategoria": "diabetes",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "Orino mucho y siempre tengo sed",
+      "text_eu": "Asko gernitzen dut eta beti egarri naiz",
+      "relevant_docs": [
+        "web_diabetes"
+      ],
+      "categoria": "endocrinologia",
+      "subcategoria": "diabetes",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "",
+      "text_eu": "Nire anaiak SIDA du, kutsatu ahal naiz?",
+      "relevant_docs": [
+        "web_vih_sida"
+      ],
+      "categoria": "infecciosas",
+      "subcategoria": "vih_sida",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "Tengo las defensas bajas, ¿es grave?",
+      "text_eu": "Defendak baxuak ditut, larria da?",
+      "relevant_docs": [
+        "web_vih_sida"
+      ],
+      "categoria": "infecciosas",
+      "subcategoria": "vih_sida",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "Tengo gripe desde hace días",
+      "text_eu": "Gripe dut egun askotatik",
+      "relevant_docs": [
+        "web_gripe"
+      ],
+      "categoria": "respiratorio",
+      "subcategoria": "gripe",
+      "dificultad": "facil"
+    },
+    {
+      "text_es": "No puedo respirar bien cuando camino",
+      "text_eu": "Ezin dut ondo arnasa hartu ibiltzean",
+      "relevant_docs": [
+        "web_epoc"
+      ],
+      "categoria": "respiratorio",
+      "subcategoria": "epoc",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "Mi bebé tiene tos y le falta el aire",
+      "text_eu": "Nire umeari eztula eta airea falta zaio",
+      "relevant_docs": [
+        "web_bronquiolitis"
+      ],
+      "categoria": "respiratorio",
+      "subcategoria": "bronquiolitis",
+      "dificultad": "alta"
+    },
+    {
+      "text_es": "Estoy muy triste y no quiero hacer nada",
+      "text_eu": "Oso triste nago eta ez dut ezer egin nahi",
+      "relevant_docs": [
+        "web_depresion"
+      ],
+      "categoria": "psiquiatria",
+      "subcategoria": "depresion",
+      "dificultad": "media"
+    },
+    {
+      "text_es": "Mi padre oye voces que no existen",
+      "text_eu": "Nire aitak ez dauden ahotsak entzuten ditu",
+      "relevant_docs": [
+        "web_esquizofrenia"
+      ],
+      "categoria": "psiquiatria",
+      "subcategoria": "esquizofrenia",
+      "dificultad": "alta"
+    },
+    {
+      "text_es": "Tengo miedo de salir de casa",
+      "text_eu": "Etxetik ateratzeari beldur diot",
+      "relevant_docs": [
+        "web_agorafobia"
+      ],
+      "categoria": "psiquiatria",
+      "subcategoria": "agorafobia",
+      "dificultad": "media"
+    },
+    
+   
+    {
+      "text_es": "Tengo calentura desde ayer",
+      "text_eu": "Beroturak ditut atzetik",
+      "relevant_docs": [
+        "web_informacion"
+      ],
+      "categoria": "sintomas",
+      "subcategoria": "gripe",
+      "dificultad": "facil"
+     
+    },
+
+ {
+      "text_es": "¿Cómo puedo ayudar a un familiar o allegado con depresión?",
+      "text_eu": "Nola lagundu dezaket depresioa duen familiar bati",
+      "relevant_docs": [
+        "web_informacion"
+      ],
+      "categoria": "sintomas",
+      "subcategoria": "gripe",
+      "dificultad": "facil"
+     
+      
+    },
+
+    {"text_es": "¿Qué métodos de prevención existen ara las mujeres menores de 35 años, ya que la mamografía no es una prueba concluyente?",
+      "text_eu": "Zer prebentzio-metodo daude 35 urtetik beherako emakumeentzat, mamografia ez baita proba erabakigarria?",
+      "relevant_docs": [
+        "web_informacion"
+      ],
+      "categoria": "sintomas",
+      "subcategoria": "gripe",
+      "dificultad": "facil"
+       }
+    
+  ]
+}
