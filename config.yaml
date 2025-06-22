@@ -11,8 +11,8 @@ preprocessing:
   remove_stopwords: true        # Activar o desactivar eliminación de stopwords
   enrich_keywords: true          # Activar o desactivar enriquecimiento de palabras clave
   enrich_keywords_n: 5           # Nº de palabras clave a generar con KeyBERT
-  chunk_size: 300                # Para ChromaDB 
-  chunk_overlap: 50              # Para mantener contexto
+  chunk_size: 400                # Para ChromaDB 
+  chunk_overlap: 80              # Para mantener contexto
 
 search:
   hybrid:
@@ -26,18 +26,19 @@ search:
     similarity_threshold: 0.5    # Umbral de similitud para filtrar resultados
   retrieval_top_k: 5   
 
-model:
-  name_embedding: "BAAI/bge-m3"  #para generar embeddings e indexar en ChromaDB
+model:  
+  name_embedding: "BAAI/bge-m3"  #para generar embeddings e indexar en ChromaDB400
   name_cross_encoder: "BAAI/bge-reranker-v2-m3"
-  name_finetuning: "bio_roberta_epochs/epoch5_MRR0.6842"
+  #name_finetuning: "bio_roberta_epochs/epoch5_MRR0.6842"
+  name_finetuning: "bge_m3_epochs/epoch4_MRR0.9717"
   name_es: "BSC-LT/roberta-base-biomedical-es"   # Para KeyBERT español
   ner_model_es: "Clinical-AI-Apollo/Medical-NER" # Para NER español
   #name_eu: "orai-nlp/ElhBERTeu"    # Para KeyBERT euskera
   translation_model: "Helsinki-NLP/opus-mt-eu-es"   # Traductor euskera→español
-  llm_model: "mistralai/Mistral-7B-Instruct-v0.2"  # Modelo de lenguaje para generación de texto
+  llm_model: "Qwen/Qwen2.5-1.5B-Instruct"  # Modelo de lenguaje para generación de texto
 collection:
   name: "documentos_osakidetza"
-  name_finetuneado: "documentos_finetuneado"
+  name_finetuneado: "documentos_finetuneado_bge_m3"
 
 logging:
   level: "INFO"
