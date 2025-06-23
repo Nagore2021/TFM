@@ -1,3 +1,6 @@
+"""
+iene como objetivo evaluar cuantitativamente la mejora semántica lograda por el modelo fine-tuneado en comparación con su versión base, específicamente en el contexto de terminología médica bidireccional (técnica ↔ coloquial).
+"""
 from sentence_transformers import SentenceTransformer, util
 import os
 import numpy as np
@@ -14,20 +17,20 @@ def calcular_similitud(modelo, frase1, frase2):
     return similitud
 
 # -------- Configurar modelos --------
-print("🔄 Cargando modelos BGE-M3...")
+print(" Cargando modelos BGE-M3...")
 
 # Modelo baseline (original)
 modelo_base = SentenceTransformer("BAAI/bge-m3")
-print("✅ BGE-M3 baseline cargado")
+print(" BGE-M3 baseline cargado")
 
-# Modelo fine-tuneado - AJUSTA ESTA RUTA
-ruta_modelo_finetuneado = "D:/TFM/models/bge_m3_epochs/epoch4_MRR0.9717"
+# Modelo fine-tuneado 
+ruta_modelo_finetuneado = "../models/bge_m3_epochs/epoch4_MRR0.9717"
 
 if not os.path.isdir(ruta_modelo_finetuneado):
     raise ValueError(f" Ruta '{ruta_modelo_finetuneado}' no encontrada")
 
 modelo_finetuneado = SentenceTransformer(ruta_modelo_finetuneado)
-print("✅ BGE-M3 fine-tuneado cargado")
+print(" BGE-M3 fine-tuneado cargado")
 
 # -------- Pares semánticos para evaluar --------
 pares_medicos = [
@@ -36,27 +39,28 @@ pares_medicos = [
     ("cáncer", "tumor"),
     ("cáncer de colon", "colonoscopia"),
     ("recidiva del cáncer de mama", "reaparición del cáncer"),
-     ("cáncer de mama", "Mamografía"),
+     ("cáncer de mama", "mamografía"),
     ("depresión", "tristeza"),
     ("HbA1c", "promedio de glucosa en sangre"),
-    ("cáncer pulmon", "tos persistente"),
+    ("cáncer de pulmón", "tos persistente"),
     ("hipoglucemia", "bajada de azúcar"),
     ("ictus", "interrupción repentina del flujo sanguíneo en el cerebro")
 ]
 
 
-# Pares no relacionados (control negativo)
+
+
+
+# Pares no relacionados (control negativo)  
 pares_control = [
-    ("diabetes", "fractura ósea"),
-    ("hipertensión", "resfriado común"),
-    ("infarto", "alergia alimentaria"),
-    ("ictus", "gripe e"),
+    ("cáncer colorrectal  ", "infarto"),
+    ("cáncer", "asma"),
+    ("recidiva del cáncer", "alergia alimentaria"),
+    ("ictus", "hipoglucemia"),
     ("edema", "fiebre alta"),
-    ("tumor pulmón", "dolor muelas"),
-    ("depresión", "catarro"),
-    ("epilepsia", "indigestión"),
-    ("VIH", "caída pelo"),
-    ("angina", "uña encarnada")
+    ("tumor pulmón", "gripe"),
+    ("depresión", "hipertensión"),
+    ("epilepsia", "alergia")
 ]
 
 print(f"\n Evaluando {len(pares_medicos)} pares médicos y {len(pares_control)} pares control...")
