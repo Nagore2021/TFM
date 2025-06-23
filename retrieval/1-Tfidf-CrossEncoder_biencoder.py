@@ -1,17 +1,15 @@
 """
-EXPERIMENTO 1: TF-IDF + BI-ENCODER + CROSS-ENCODER (VERSIÓN CORREGIDA COMPLETA)
+EXPERIMENTO 1: TF-IDF + BI-ENCODER + CROSS-ENCODER
 
 PARA PRINCIPIANTES: Este script implementa y compara 4 métodos de búsqueda de documentos
 
-OBJETIVO: 
-Encontrar qué método es mejor para buscar documentos médicos relevantes cuando 
-un usuario hace una pregunta.
+
 
 MÉTODOS EVALUADOS:
-1. TF-IDF: Busca palabras exactas (método tradicional)
-2. Bi-Encoder: Entiende el significado de las palabras
-3. Cross-Encoder: Evalúa muy detalladamente cada par pregunta-documento 
-4. Pipeline Híbrido: Combina los 3 métodos en secuencia
+1. TF-IDF: Busca palabras exactas (método tradicifonal)
+2. Bi-Encoder: Entiende el significado de las palabras (IA moderna) 
+3. Cross-Encoder: Evalúa muy detalladamente cada par pregunta-documento (IA avanzada)
+
 
 QUÉ MIDE:
 - Precision@K: ¿De los K documentos que devuelve, cuántos son realmente útiles?
@@ -34,7 +32,6 @@ import torch  # Para usar GPU si está disponible
 from transformers import pipeline as hf_pipeline  # Para traducir euskera→español
 from collections import defaultdict
 
-
 # Fijar semillas para reproducibilidad
 import random
 random.seed(42)
@@ -51,6 +48,8 @@ from retrieval.chroma_utils import translate_eu_to_es, limpiar_texto_excel
 # Configurar logging para ver qué está pasando durante la ejecución
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
+
+
 
 
 def load_data(path: str) -> Tuple[List[Dict], Dict[str, str]]:
@@ -150,46 +149,76 @@ def calculate_tfidf_rankings(vectorizer, X, doc_ids, query_text):
     """TF-IDF - Búsqueda  por palabras clave"""
     logger.debug(f"TF-IDF: Procesando query '{query_text[:50]}...'")
     qv = vectorizer.transform([query_text])
-    sims = (X @ qv.T).toarray().ravel()  #  Producto punto matricial para similitud coseno
-    idx = sims.argsort()[::-1]  #orden descendente (mayor similitud primero)
+    sims = (X @ qv.T).toarray().ravel()
+    idx = sims.argsort()[::-1]
     return [doc_ids[i] for i in idx]
 
-def calculate_biencoder_rankings(biencoder, corpus, doc_ids, query_text, device):
-    """Bi-Encoder """
+# def calculate_biencoder_rankings(biencoder, corpus, doc_ids, query_text, device):
+#     """Bi-Encoder """
+#     logger.debug(f"Bi-Encoder: Procesando query '{query_text[:50]}...'")
+#     q_emb = biencoder.encode(query_text, convert_to_tensor=True, device=device)
+#     docs_texts = [corpus[doc_id] for doc_id in doc_ids]
+#     doc_embs = biencoder.encode(docs_texts, convert_to_tensor=True, device=device)
+    
+#     similarities = []
+#     if hasattr(q_emb, 'cpu'):  # GPU
+#         for doc_emb in doc_embs:
+#             sim = float(torch.cosine_similarity(q_emb.unsqueeze(0), doc_emb.unsqueeze(0)))
+#             similarities.append(sim)
+#     else:  # CPU
+#         for doc_emb in doc_embs:
+#             sim = float(np.dot(q_emb, doc_emb) / (np.linalg.norm(q_emb) * np.linalg.norm(doc_emb)))
+#             similarities.append(sim)
+    
+#     ranked_pairs = sorted(zip(similarities, doc_ids), key=lambda x: x[0], reverse=True)
+#     return [doc_id for _, doc_id in ranked_pairs]
+
+
+def calculate_biencoder_rankings(biencoder, corpus, doc_ids, query_text, device, batch_size=16):
+    """Bi-Encoder con procesamiento por batches para evitar OOM"""
     logger.debug(f"Bi-Encoder: Procesando query '{query_text[:50]}...'")
     q_emb = biencoder.encode(query_text, convert_to_tensor=True, device=device)
+    
     docs_texts = [corpus[doc_id] for doc_id in doc_ids]
-    doc_embs = biencoder.encode(docs_texts, convert_to_tensor=True, device=device)
     
-    similarities = []
-    if hasattr(q_emb, 'cpu'):  # GPU
-        for doc_emb in doc_embs:
+    # Procesar documentos en batches
+    all_similarities = []
+    for i in range(0, len(docs_texts), batch_size):
+        batch_texts = docs_texts[i:i+batch_size]
+        batch_embs = biencoder.encode(batch_texts, convert_to_tensor=True, device=device)
+        
+        # Calcular similitudes para este batch
+        batch_similarities = []
+        for doc_emb in batch_embs:
             sim = float(torch.cosine_similarity(q_emb.unsqueeze(0), doc_emb.unsqueeze(0)))
-            similarities.append(sim)
-    else:  # CPU
-        for doc_emb in doc_embs:
-            sim = float(np.dot(q_emb, doc_emb) / (np.linalg.norm(q_emb) * np.linalg.norm(doc_emb)))
-            similarities.append(sim)
+            batch_similarities.append(sim)
+        
+        all_similarities.extend(batch_similarities)
+        
+        # Limpiar memoria
+        del batch_embs
+        torch.cuda.empty_cache()
     
-    ranked_pairs = sorted(zip(similarities, doc_ids), key=lambda x: x[0], reverse=True)
+    # Ranking final
+    ranked_pairs = sorted(zip(all_similarities, doc_ids), key=lambda x: x[0], reverse=True)
     return [doc_id for _, doc_id in ranked_pairs]
 
 def calculate_crossencoder_rankings(cross_encoder, corpus, pool_docs, query_text, batch_size=8):
-        """Cross-Encoder -"""
-        if not pool_docs:
-            logger.debug("Cross-Encoder: Pool vacío, devolviendo lista vacía")
-            return []
-        
-        logger.debug(f"Cross-Encoder: Evaluando {len(pool_docs)} documentos candidatos")
-        pairs = []
-        for doc_id in pool_docs:
-            document_text = corpus[doc_id]
-            pair = (query_text, document_text)
-            pairs.append(pair)
-        
-        scores = cross_encoder.predict(pairs, batch_size=batch_size)
-        ranked_pairs = sorted(zip(scores, pool_docs), key=lambda x: x[0], reverse=True)
-        return [doc_id for _, doc_id in ranked_pairs]
+    """Cross-Encoder -"""
+    if not pool_docs:
+        logger.debug("Cross-Encoder: Pool vacío, devolviendo lista vacía")
+        return []
+    
+    logger.debug(f"Cross-Encoder: Evaluando {len(pool_docs)} documentos candidatos")
+    pairs = []
+    for doc_id in pool_docs:
+        document_text = corpus[doc_id]
+        pair = (query_text, document_text)
+        pairs.append(pair)
+    
+    scores = cross_encoder.predict(pairs, batch_size=batch_size)
+    ranked_pairs = sorted(zip(scores, pool_docs), key=lambda x: x[0], reverse=True)
+    return [doc_id for _, doc_id in ranked_pairs]
 
 def create_balanced_pool(tfidf_ranking, biencoder_ranking, pool_size=50):
     """Pool Balanceado - Eliminando sesgos metodológicos"""
@@ -217,43 +246,43 @@ def create_balanced_pool(tfidf_ranking, biencoder_ranking, pool_size=50):
     logger.debug(f"Pool balanceado creado: {len(balanced_pool)} documentos únicos")
     return balanced_pool
 
-# def calculate_hybrid_pipeline(tfidf_ranking, biencoder, cross_encoder, corpus, 
-#                             query_text, device, pool_size=10, batch_size=8):
-#     """Pipeline Híbrido """
-#     logger.debug(f"Pipeline Híbrido: Iniciando con pool de {pool_size} documentos")
-#     tfidf_pool = tfidf_ranking[:pool_size]
+def calculate_hybrid_pipeline(tfidf_ranking, biencoder, cross_encoder, corpus, 
+                            query_text, device, pool_size=10, batch_size=8):
+    """Pipeline Híbrido """
+    logger.debug(f"Pipeline Híbrido: Iniciando con pool de {pool_size} documentos")
+    tfidf_pool = tfidf_ranking[:pool_size]
     
-#     if not tfidf_pool:
-#         logger.warning("Pipeline Híbrido: Pool TF-IDF vacío")
-#         return []
+    if not tfidf_pool:
+        logger.warning("Pipeline Híbrido: Pool TF-IDF vacío")
+        return []
     
-#     # Reordenación con Bi-Encoder
-#     logger.debug("Pipeline: Reordenando con Bi-Encoder...")
-#     q_emb = biencoder.encode(query_text, convert_to_tensor=True, device=device)
-#     pool_texts = [corpus[doc_id] for doc_id in tfidf_pool]
-#     pool_embs = biencoder.encode(pool_texts, convert_to_tensor=True, device=device)
+    # Reordenación con Bi-Encoder
+    logger.debug("Pipeline: Reordenando con Bi-Encoder...")
+    q_emb = biencoder.encode(query_text, convert_to_tensor=True, device=device)
+    pool_texts = [corpus[doc_id] for doc_id in tfidf_pool]
+    pool_embs = biencoder.encode(pool_texts, convert_to_tensor=True, device=device)
     
-#     if hasattr(q_emb, 'cpu'):  # GPU
-#         sem_scores = [
-#             float(torch.cosine_similarity(q_emb.unsqueeze(0), emb.unsqueeze(0)))
-#             for emb in pool_embs
-#         ]
-#     else:  # CPU
-#         sem_scores = [
-#             float(np.dot(q_emb, emb) / (np.linalg.norm(q_emb) * np.linalg.norm(emb)))
-#             for emb in pool_embs
-#         ]
+    if hasattr(q_emb, 'cpu'):  # GPU
+        sem_scores = [
+            float(torch.cosine_similarity(q_emb.unsqueeze(0), emb.unsqueeze(0)))
+            for emb in pool_embs
+        ]
+    else:  # CPU
+        sem_scores = [
+            float(np.dot(q_emb, emb) / (np.linalg.norm(q_emb) * np.linalg.norm(emb)))
+            for emb in pool_embs
+        ]
     
-#     biencoder_reranked = [doc for _, doc in sorted(zip(sem_scores, tfidf_pool), 
-#                                                   key=lambda x: x[0], reverse=True)]
+    biencoder_reranked = [doc for _, doc in sorted(zip(sem_scores, tfidf_pool), 
+                                                  key=lambda x: x[0], reverse=True)]
     
-#     # Reranking final con Cross-Encoder
-#     logger.debug("Pipeline: Reranking final con Cross-Encoder...")
-#     final_ranking = calculate_crossencoder_rankings(cross_encoder, corpus, 
-#                                                    biencoder_reranked, query_text, batch_size)
+    # Reranking final con Cross-Encoder
+    logger.debug("Pipeline: Reranking final con Cross-Encoder...")
+    final_ranking = calculate_crossencoder_rankings(cross_encoder, corpus, 
+                                                   biencoder_reranked, query_text, batch_size)
     
-#     logger.debug(f"Pipeline completado: {len(final_ranking)} documentos ordenados")
-#     return final_ranking
+    logger.debug(f"Pipeline completado: {len(final_ranking)} documentos ordenados")
+    return final_ranking
 
 # VISUALIZACIÓN: Crear gráficos para entender los resultados
 def plot_curves(df: pd.DataFrame, out_dir: str):
@@ -324,7 +353,7 @@ def plot_curves(df: pd.DataFrame, out_dir: str):
     plt.savefig(f"{out_dir}/comparison_curves.pdf", bbox_inches='tight')
     plt.close()
     
-    # Crear gráfico de barras para comparación directa en K=3
+    # Crear gráfico de barras para comparación directa en K=5
     fig, ax = plt.subplots(1, 1, figsize=(12, 8))
     
     k5_data = metrics_summary[metrics_summary['k'] == 5]
@@ -379,12 +408,12 @@ def main():
     
     # CONFIGURACIÓN
     dataset_path = '../evaluacion/dataset_test.json'
-    out_dir = '/resultados/experimento_tfidf_biencoder_xenc_ft'
+    out_dir = '../resultados/experimento_tfidf_biencoder_xenc'
     pool_size = 5  # Documentos a pasar a Cross-Encoder.  Reducido de 10 a 5 documentos
     top_ks = [1, 3, 5, 10]  # Valores de K para evaluar
     batch_size = 4  # Reducido de 8 a 4 para usar menos memoria, Tamaño de lote para Cross-Encoder
-    num_queries = 50  # Número de preguntas para la prueba
-
+    num_queries = 100  # Número de preguntas para la prueba
+    biencoder_batch_size = 16  # Tamaño de lote para Bi-Encoder, ajustado para evitar OOM
     # PASO 1: CARGAR DATOS
     logger.info("Cargando datos del experimento...")
     queries, corpus = load_data(dataset_path)
@@ -400,11 +429,7 @@ def main():
     # Cargar modelos
     
     config = cargar_configuracion('../config.yaml')
-
-    model_dir =config['paths']['model_path']
-    model_name =config['model']['name_finetuning']
-    full_model_path = os.path.join(model_dir, model_name)
-    biencoder = SentenceTransformer(full_model_path)
+    biencoder = SentenceTransformer(config['model']['name_embedding'])
     cross_encoder = CrossEncoder(config['model']['name_cross_encoder'], device=device)
     logger.info("Modelos cargados exitosamente")
     
@@ -416,7 +441,7 @@ def main():
     # Configurar y entrenar TF-IDF
     vectorizer = TfidfVectorizer(
         ngram_range=(1, 2),  # Unigrams y bigrams
-        max_features=15000,  # Máximo 15k características para el diccionario 
+        max_features=15000,  # Máximo 15k características
         stop_words=None,     # No remover stop words (importantes en medicina)
         lowercase=True,      # Convertir a minúsculas
         strip_accents='unicode',  # Normalizar acentos
@@ -457,15 +482,13 @@ def main():
         tfidf_ranking = calculate_tfidf_rankings(vectorizer, X, doc_ids, query_text)
         
         # MÉTODO 2: BI-ENCODER RANKING
-        biencoder_ranking = calculate_biencoder_rankings(biencoder, corpus, doc_ids, query_text, device)
+        biencoder_ranking = calculate_biencoder_rankings(biencoder, corpus, doc_ids, query_text, device, batch_size=biencoder_batch_size)
         
         # MÉTODO 3: CROSS-ENCODER CON POOL BALANCEADO
         balanced_pool = create_balanced_pool(tfidf_ranking, biencoder_ranking, pool_size * 5)
         crossencoder_ranking = calculate_crossencoder_rankings(cross_encoder, corpus, balanced_pool, query_text, batch_size)
         
-        # # MÉTODO 4: PIPELINE HÍBRIDO
-        # hybrid_ranking = calculate_hybrid_pipeline(tfidf_ranking, biencoder, cross_encoder, 
-        #                                          corpus, query_text, device, pool_size, batch_size)
+        
         
         # EVALUACIÓN PARA CADA K
         for k in top_ks:
@@ -481,8 +504,8 @@ def main():
             res_crossencoder = evaluate_with_metadata(crossencoder_ranking, gold_docs, k, metadata, 'cross_encoder', query_text)
             records.append(res_crossencoder)
             
-            # # Evaluar Pipeline Híbrido
-            # res_hybrid = evaluate_with_metadata(hybrid_ranking, gold_docs, k, metadata, 'hybrid_pipeline', query_text)
+            # # # Evaluar Pipeline Híbrido
+            # # res_hybrid = evaluate_with_metadata(hybrid_ranking, gold_docs, k, metadata, 'hybrid_pipeline', query_text)
             # records.append(res_hybrid)
     
     # PASO 5: GUARDAR RESULTADOS
@@ -517,7 +540,7 @@ def main():
     plot_curves(df, out_dir)
     
     # PASO 7: ANÁLISIS FINAL
-    logger.info("Análisis final de resultados:")
+    logger.info("ANÁLISIS FINAL DE RESULTADOS:")
     
     # Encontrar el mejor método por métrica en K=5
     k5_data = summary[summary['k'] == 5]
@@ -530,7 +553,7 @@ def main():
     tfidf_k5 = k5_data[k5_data['method'] == 'tfidf']
     if not tfidf_k5.empty:
         tfidf_baseline = tfidf_k5.iloc[0]
-        logger.info("\nMejoras respecto  a TF-IDF Baseline:")
+        logger.info("\nMEJORAS RESPECTO A TF-IDF BASELINE:")
         
         for metric in ['precision', 'recall', 'f1', 'mrr', 'ndcg']:
             best_row = k5_data.loc[k5_data[metric].idxmax()]
@@ -538,7 +561,7 @@ def main():
                 mejora = ((best_row[metric] - tfidf_baseline[metric]) / tfidf_baseline[metric]) * 100
                 logger.info(f"{metric.upper()}: {mejora:.1f}% mejora ({best_row['method']})")
     
-    logger.info("Experimento Completo")
+    logger.info("EXPERIMENTO COMPLETADO EXITOSAMENTE!")
 
 if __name__ == "__main__":
     main()

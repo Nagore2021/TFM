@@ -182,6 +182,10 @@ class BM25DualChunkEvaluator:
         Carga modelos de recuperación semántica y traducción.
         """
         device = "cuda" if torch.cuda.is_available() else "cpu"
+
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache() 
+            
         logger.info(f"Usando dispositivo: {device}")
         
         
@@ -432,7 +436,7 @@ class BM25DualChunkEvaluator:
     
     def evaluate_all_strategies(self, queries, relevant_docs, max_queries=None):
         """
-        Evalúa las 4 estrategias de chunk retrieval.
+        Evalúa las 3 estrategias de chunk retrieval.
         """
         if max_queries:
             queries = queries[:max_queries]
@@ -577,14 +581,14 @@ def plot_curves(df: pd.DataFrame, out_dir: str):
     logger.info(f"Gráficos guardados en {out_dir}/")
 
 def main():
-    """Función principal del experimento BM25 chunks con 4 estrategias."""
+    """Función principal del experimento BM25 chunks con 3 estrategias."""
     import argparse
     parser = argparse.ArgumentParser(description="BM25 Chunks: 3 estrategias de recuperación")
     parser.add_argument('--config', type=str, default="../config.yaml", help="Ruta al archivo de configuración")
     parser.add_argument('--json_gold', type=str, default="../evaluacion/dataset_test.json", help="Ruta al dataset de evaluación")
-    parser.add_argument('--mode', type=str, default="embedding", choices=["embedding", "finetuneado"], help="Modo: embedding o finetuneado")
+    parser.add_argument('--mode', type=str, default="finetuning", choices=["embedding", "finetuneado"], help="Modo: embedding o finetuneado")
     parser.add_argument('--output_dir', type=str, default="resultados/experiment_bm25_chunks_3strategies", help="Directorio de salida")
-    parser.add_argument('--max_queries', type=int, default=50, help="Máximo número de queries")
+    parser.add_argument('--max_queries', type=int, default=200, help="Máximo número de queries")
     args = parser.parse_args()
 
     logger.info("=== Experimento BM25 CHUNKS - 3 ESTRATEGIAS ===")
