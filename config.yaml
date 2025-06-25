@@ -5,14 +5,15 @@ paths:
   chroma_db_path: "../chroma_db/"
   model_path: "../models/"
   output_dir: "./resultados"  # Directorio de salida para los resultados
-
+  json_path:  "../config.yaml"
+  
 preprocessing:
   use_lemmatization: false       # Activar o desactivar lematización
   remove_stopwords: true        # Activar o desactivar eliminación de stopwords
   enrich_keywords: true          # Activar o desactivar enriquecimiento de palabras clave
   enrich_keywords_n: 5           # Nº de palabras clave a generar con KeyBERT
-  chunk_size: 400                # Para ChromaDB 
-  chunk_overlap: 80              # Para mantener contexto
+  chunk_size: 300                # Para ChromaDB 
+  chunk_overlap: 50              # Para mantener contexto
 
 search:
   hybrid:
