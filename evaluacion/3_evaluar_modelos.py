@@ -148,8 +148,7 @@ def main():
             "jinaai/jina-embeddings-v2-base-es",
             "sentence-transformers/all-MiniLM-L6-v2",
             "Qwen/Qwen3-Embedding-8B",
-            "models/bge_m3_epochs/epoch4_MRR0.9717",
-            "models/bio_roberta_epochs/epoch4_MRR0.9726"
+            "models/bge_m3_epochs/epoch4_MRR0.9717"
         ]
 
         K_VALUES = [1, 3, 5, 10]
