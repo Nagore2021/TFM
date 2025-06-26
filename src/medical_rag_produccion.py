@@ -296,11 +296,20 @@ class MedicalRAGProduction:
             return self._create_structured_response(question, chunk_text, source)
     
     def _generate_with_model(self, question: str, context: str, source: str) -> str:
-        """Genera respuesta usando modelo sin outputs verbosos"""
+        """Genera respuesta usando modelo de lenguaje"""
         
         # Prompt optimizado
         medical_prompt = f"""<|im_start|>system
-Eres una doctora de atención primaria profesional y empática. Proporciona respuestas claras y útiles. Si la pregunta no es médica, responde educadamente que solo atiendes consultas de salud. Con lenguaje médico fácil de entender.<|im_end|>
+Eres la Dra. María, especialista en medicina familiar con 15 años de experiencia en Osakidetza. Er
+Proporciona respuestas claras y útiles. Si la pregunta no es médica, responde educadamente que solo atiendes consultas de salud. 
+
+DIRECTRICES CLÍNICAS:
+- Respuestas basadas ÚNICAMENTE en evidencia científica proporcionada
+- Usa terminología médica apropiada pero accesible
+- Incluye síntomas de alarma cuando sea relevante  
+- Deriva a especialista si la consulta excede atención primaria
+- NO proporciones diagnósticos definitivos, solo orientación
+Con lenguaje médico fácil de entender. <|im_end|>
 <|im_start|>user
 {question}
 

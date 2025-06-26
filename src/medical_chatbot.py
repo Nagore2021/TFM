@@ -15,7 +15,8 @@ from retrieval.chroma_utils import translate_eu_to_es
 from embeddings.load_model import cargar_configuracion
 
 # Imports para memoria conversacional
-from langchain.memory import ConversationSummaryBufferMemory
+# from langchain.memory import ConversationSummaryBufferMemory
+from langchain.memory import ConversationBufferWindowMemory
 
 # Logger
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -217,11 +218,17 @@ def load_rag_system() -> Optional[MedicalRAGProduction]:
             # VERIFICAR que el LLM existe antes de crear memoria
             if hasattr(rag, 'llm') and rag.llm is not None:
                 # Crear memoria conversacional
-                memory = ConversationSummaryBufferMemory(
-                    llm=rag.llm, 
-                    max_token_limit=150,
+                # memory = ConversationSummaryBufferMemory(
+                #     llm=rag.llm, 
+                #     max_token_limit=150,
+                #     memory_key="chat_history",
+                #     return_messages=True
+                # )
+
+                memory = ConversationBufferWindowMemory(
+                    k=2,  # Solo últimas 2 interacciones
                     memory_key="chat_history",
-                    return_messages=True
+                    return_messages=False  # String simple, no objetos complejos
                 )
                 rag.memory = memory
                 logger.info("Memoria conversacional activada")
@@ -260,79 +267,130 @@ def translate_spanish_to_euskera(text: str, translator) -> str:
     except Exception as e:
         logger.error(f"Traducción es→eu fallida: {e}")
         return text
+    
+def get_clean_chat_history(rag_system, max_length=300):
+    """Obtiene el historial de chat limpio desde la memoria del sistema RAG."""
+    try:
+        if not hasattr(rag_system, 'memory') or not rag_system.memory:
+            return ""
+        
+        memory_vars = rag_system.memory.load_memory_variables({})
+        history = memory_vars.get('chat_history', '')
+        
+        if not history:
+            return ""
+        
+        # Convertir a string si es necesario
+        if isinstance(history, list):
+            history = '\n'.join([str(msg) for msg in history[-4:]])
+        
+        # Limitar longitud
+        if len(history) > max_length:
+            history = history[-max_length:] + "..."
+        
+        return history
+    except:
+        return ""
 
 def process_medical_query_with_memory(rag_system, spanish_query, original_query, is_euskera, reverse_translator):
-    """
-    Procesa consulta médica con memoria y traducción de respuesta
-    """
-    start_time = time.time()
-    
+    """Procesa una consulta médica con memoria y traducción de respuesta"""
     try:
-        # 1. Verificar si hay memoria disponible
-        if hasattr(rag_system, 'memory') and rag_system.memory is not None:
-            memory_vars = rag_system.memory.load_memory_variables({})
-            
-            if memory_vars.get('chat_history'):
-                # Añadir contexto del historial
-                contextualized_query = f"Historial médico previo: {memory_vars['chat_history']}\n\nConsulta actual: {spanish_query}"
-            else:
-                contextualized_query = spanish_query
-            
-            # Obtener respuesta del RAG (en español)
-            response = rag_system.ask_doctor(contextualized_query)
-            
-            # 2. Si la consulta era en euskera, traducir la respuesta
-            if is_euskera and reverse_translator and response.success:
-                try:
-                    # Guardar respuesta original en español (para memoria)
-                    spanish_response = response.answer
-                    
-                    # Traducir respuesta a euskera
-                    euskera_response = translate_spanish_to_euskera(response.answer, reverse_translator)
-                    response.answer = euskera_response
-                    logger.info("Respuesta traducida al euskera")
-                    
-                    # Guardar en memoria (en español para coherencia)
-                    rag_system.memory.save_context(
-                        {"input": spanish_query},
-                        {"output": spanish_response}  # Respuesta original en español
-                    )
-                except Exception as e:
-                    logger.warning(f"Error traduciendo respuesta: {e}")
-                    response.answer = f"[Respuesta en español - error de traducción]\n\n{response.answer}"
-                    
-                    # Guardar en memoria de todas formas
-                    if response.success:
-                        rag_system.memory.save_context(
-                            {"input": spanish_query},
-                            {"output": response.answer}
-                        )
-            else:
-                # Respuesta en español, guardar directamente si hay memoria
-                if response.success and rag_system.memory:
-                    rag_system.memory.save_context(
-                        {"input": spanish_query},
-                        {"output": response.answer}
-                    )
+        # 1. Obtener contexto limpio
+        chat_history = get_clean_chat_history(rag_system)
+        
+        # 2. Crear query con contexto solo si existe
+        if chat_history:
+            final_query = f"Contexto previo: {chat_history}\n\nConsulta actual: {spanish_query}"
         else:
-            # Sin memoria, funciona como antes
-            logger.info("Procesando sin memoria conversacional")
-            response = rag_system.ask_doctor(spanish_query)
+            final_query = spanish_query
+        
+        # 3. Procesar con RAG
+        response = rag_system.ask_doctor(final_query)
+        
+        # 4. Traducir si es euskera
+        if is_euskera and reverse_translator and response.success:
+            spanish_response = response.answer
+            response.answer = translate_spanish_to_euskera(response.answer, reverse_translator)
             
-            # Traducir si es necesario
-            if is_euskera and reverse_translator and response.success:
-                try:
-                    euskera_response = translate_spanish_to_euskera(response.answer, reverse_translator)
-                    response.answer = euskera_response
-                except Exception as e:
-                    logger.warning(f"Error traduciendo: {e}")
+            # Guardar en memoria
+            if rag_system.memory:
+                rag_system.memory.save_context(
+                    {"input": spanish_query}, 
+                    {"output": spanish_response}
+                )
+        else:
+            # Guardar en memoria
+            if response.success and rag_system.memory:
+                rag_system.memory.save_context(
+                    {"input": spanish_query}, 
+                    {"output": response.answer}
+                )
         
         return response
         
     except Exception as e:
-        logger.error(f"Error procesando consulta: {e}")
-        # Fallback
+        logger.error(f"Error: {e}")
         return rag_system.ask_doctor(spanish_query)
+
+# def process_medical_query_with_memory(rag_system, spanish_query, original_query, is_euskera, reverse_translator):
+#     """
+#     Procesa consulta médica con memoria y traducción de respuesta
+#     """
+#     start_time = time.time()
+    
+#     try:
+#         # 1. CONSTRUIR QUERY CON CONTEXTO LIMPIO
+#         final_query = spanish_query
+        
+#         if hasattr(rag_system, 'memory') and rag_system.memory is not None:
+#             memory_vars = rag_system.memory.load_memory_variables({})
+            
+#             if memory_vars.get('chat_history'):
+#                 # Ahora debería devolver string simple
+#                 chat_history = memory_vars['chat_history']
+#                 logger.info(f"Memoria recuperada: {chat_history[:100]}...")
+                
+#                 # Construir consulta con contexto
+#                 final_query = f"Contexto conversacional previo: {chat_history}\n\nPregunta actual: {spanish_query}"
+#                 logger.info("Consulta expandida con memoria conversacional")
+#             else:
+#                 logger.info("No hay historial en memoria")
+        
+#         # 2. ENVIAR CONSULTA AL SISTEMA RAG 
+#         response = rag_system.ask_doctor(final_query)
+        
+#         # 3. TRADUCIR RESPUESTA SI ES NECESARIO
+#         if is_euskera and reverse_translator and response.success:
+#             try:
+#                 spanish_response = response.answer
+#                 euskera_response = translate_spanish_to_euskera(response.answer, reverse_translator)
+#                 response.answer = euskera_response
+                
+#                 # Guardar en memoria (pregunta original sin contexto)
+#                 if hasattr(rag_system, 'memory') and rag_system.memory is not None:
+#                     rag_system.memory.save_context(
+#                         {"input": spanish_query},
+#                         {"output": spanish_response}
+#                     )
+#                     logger.info("Memoria actualizada")
+#             except Exception as e:
+#                 logger.warning(f"Error traduciendo: {e}")
+#         else:
+#             # Guardar en memoria si hay
+#             if response.success and hasattr(rag_system, 'memory') and rag_system.memory is not None:
+#                 rag_system.memory.save_context(
+#                     {"input": spanish_query},
+#                     {"output": response.answer}
+#                 )
+#                 logger.info("Memoria actualizada")
+        
+#         return response
+        
+#     except Exception as e:
+#         logger.error(f"Error procesando consulta: {e}")
+#         return rag_system.ask_doctor(spanish_query)
+    
+
 
 def format_medical_response(response: MedicalResponse, is_euskera: bool = False) -> str:
     """Formatea la respuesta médica para Streamlit"""
@@ -435,7 +493,7 @@ def main():
         '<strong>AVISO MÉDICO / OHAR MEDIKOA:</strong><br>'
         'Sistema de información médica  para orientación general. '
         '<strong>NO SUSTITUYE a la consulta médica profesional.</strong><br>'
-        '<strong>Osakidetzako informazio medikoko sistema orientazio orokorrerako. '
+        '<strong>Orientazio orokorrerako informazio medikoko sistema. '
         'Ez du ordeztzen kontsulta mediko profesionala.</strong><br>'
         '<strong>Emergencias / Larrialdiak: 112</strong>'
         '</div>',
