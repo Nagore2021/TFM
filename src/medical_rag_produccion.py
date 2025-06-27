@@ -282,7 +282,56 @@ class MedicalRAGProduction:
         except Exception as e:
             self.logger.error(f"Error en recuperación: {e}")
             return None
+
+    # def _find_medical_information(self, question: str) -> Optional[Dict[str, Any]]:
     
+    #     try:
+    #         # Pipeline híbrido 
+    #         hybrid_results = self.retrieval_system.calculate_hybrid_pipeline(
+    #             query=question,
+    #             pool_size=10,
+    #             batch_size=8
+    #         )
+            
+    #         if not hybrid_results:
+    #             hybrid_results = self.retrieval_system.calculate_bm25_rankings(question)
+            
+    #         if not hybrid_results:
+    #             return None
+            
+    #         # Obtener mejor resultado
+    #         best_chunk_id = hybrid_results[0]
+    #         chunk_text = self.retrieval_system.docs_raw.get(best_chunk_id, '')
+    #         chunk_metadata = self.retrieval_system.metadatas.get(best_chunk_id, {})
+            
+    #         # ⚡ SOLUCIÓN RÁPIDA: Combinar chunks cortos con siguiente
+    #         if len(chunk_text) < 300:
+    #             next_chunk_id = chunk_metadata.get('next_chunk')
+    #             if next_chunk_id:
+    #                 next_text = self.retrieval_system.docs_raw.get(next_chunk_id, '')
+    #                 if next_text:
+    #                     # Verificar que es del mismo documento
+    #                     next_metadata = self.retrieval_system.metadatas.get(next_chunk_id, {})
+    #                     if next_metadata.get('document_id') == chunk_metadata.get('document_id'):
+    #                         chunk_text = chunk_text + "\n\n" + next_text
+    #                     if self.verbose:
+    #                         print(f"DEBUG: Chunk combinado. Nueva longitud: {len(chunk_text)} caracteres")
+            
+    #         return {
+    #             "chunk_id": best_chunk_id,
+    #             "text": chunk_text,  # ← Ahora puede ser texto combinado
+    #             "filename": chunk_metadata.get('filename', 'Guía médica'),
+    #             "document_id": chunk_metadata.get('document_id', ''),
+    #             "chunk_position": chunk_metadata.get('chunk_position', ''),
+    #             "categoria": chunk_metadata.get('categoria', 'medicina'),
+    #             "strategy_used": "Pipeline Híbrido" + (" + Combinación adaptativa" if len(chunk_text) > 400 else ""),
+    #             "all_results": hybrid_results[:3]  # Solo top 3 para info
+    #         }
+            
+    #     except Exception as e:
+    #         self.logger.error(f"Error en recuperación: {e}")
+    #         return None
+        
     def _generate_medical_response(self, question: str, chunk_info: Dict[str, Any]) -> str:
         """Genera respuesta médica de forma silenciosa"""
         
@@ -296,20 +345,26 @@ class MedicalRAGProduction:
             return self._create_structured_response(question, chunk_text, source)
     
     def _generate_with_model(self, question: str, context: str, source: str) -> str:
-        """Genera respuesta usando modelo de lenguaje"""
+        """Genera respuesta usando modelo de lenguaje
+        Args:
+            question: Pregunta médica del usuario
+            context: Contexto médico relevante
+            source: Fuente de la información médica
+        """
         
         # Prompt optimizado
         medical_prompt = f"""<|im_start|>system
-Eres la Dra. María, especialista en medicina familiar con 15 años de experiencia en Osakidetza. Er
-Proporciona respuestas claras y útiles. Si la pregunta no es médica, responde educadamente que solo atiendes consultas de salud. 
 
-DIRECTRICES CLÍNICAS:
-- Respuestas basadas ÚNICAMENTE en evidencia científica proporcionada
-- Usa terminología médica apropiada pero accesible
-- Incluye síntomas de alarma cuando sea relevante  
-- Deriva a especialista si la consulta excede atención primaria
-- NO proporciones diagnósticos definitivos, solo orientación
-Con lenguaje médico fácil de entender. <|im_end|>
+Eres un asistente médico. DEBES responder ÚNICAMENTE basándote en el contexto médico proporcionado.
+
+REGLAS ESTRICTAS:
+1. SOLO usa información del contexto proporcionado
+2. Si el contexto no contiene la respuesta, di "No tengo información suficiente en la documentación proporcionada"
+3. NO uses conocimiento general médico
+4. NO inventes síntomas, tratamientos o información
+5. Cita textualmente la información relevante del contexto
+6. NO uses jerga médica compleja, explica en términos simples
+ <|im_end|>
 <|im_start|>user
 {question}
 
@@ -322,10 +377,10 @@ Información médica relevante:
             # Generación optimizada para Streamlit
             response = self.generation_pipeline(
                 medical_prompt,
-                max_new_tokens=400,  # Respuestas completas pero no excesivas
-                temperature=0.3,  # Temperatura baja para respuestas coherentes
-                do_sample=True,
-                top_p=0.85, # Top-p para diversidad controlada
+                max_new_tokens=300,  # Respuestas completas pero no excesivas
+                temperature=0.1,  # Temperatura baja para respuestas coherentes
+                do_sample=False,  # No usar muestreo para respuestas estables
+                #top_p=0.85, # Top-p para diversidad controlada
                 repetition_penalty=1.1,  # Penalización de repetición para evitar redundancias
                 pad_token_id=self.generation_pipeline.tokenizer.pad_token_id,
             )

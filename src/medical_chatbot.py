@@ -225,17 +225,17 @@ def load_rag_system() -> Optional[MedicalRAGProduction]:
                 #     return_messages=True
                 # )
 
-                memory = ConversationBufferWindowMemory(
-                    k=2,  # Solo últimas 2 interacciones
-                    memory_key="chat_history",
-                    return_messages=False  # String simple, no objetos complejos
-                )
-                rag.memory = memory
-                logger.info("Memoria conversacional activada")
+                    memory = ConversationBufferWindowMemory(
+                        k=3,  # Solo últimas 3 interacciones
+                        memory_key="chat_history",
+                        return_messages=False  # String simple, no objetos complejos
+                    )
+                    rag.memory = memory
+                    logger.info("Memoria conversacional activada")
             else:
-                logger.warning("LLM no disponible, memoria desactivada")
-                rag.memory = None
-            
+                    logger.warning("LLM no disponible, memoria desactivada")
+                    rag.memory = None
+                
             return rag
         else:
             logger.error("Error en inicialización del sistema RAG")
@@ -507,13 +507,13 @@ def main():
     if "messages" not in st.session_state:
         st.session_state.messages = []
         welcome = (
-            "**Kaixo! Osasun laguntzailea naiz**\n\n"
+            "​🥼 Kaixo! Osasun laguntzailea naiz\n\n"
             "Gaixotasunen inguruko galderak erantzuteko hemen nago: "
             "sintomak, tratamenduak, zainketa egokiak...\n\n"
             "**¡Hola! Soy tu asistente médico**\n\n"
             "Estoy aquí para responder preguntas sobre salud: "
             "síntomas, tratamientos, cuidados apropiados...\n\n"
-            "**¿En qué puedo ayudarte hoy? / Zertan lagun zaitzaket gaur?**"
+            "¿En qué puedo ayudarte hoy? / Zertan lagun zaitzaket gaur? ❓​"
         )
         st.session_state.messages.append({"role": "assistant", "content": welcome})
     
